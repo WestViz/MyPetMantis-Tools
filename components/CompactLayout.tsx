@@ -6,7 +6,7 @@ interface LayoutProps {
 
 const CompactLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
-        <div className="min-h-screen flex flex-col bg-[#ffe0c1] selection:bg-[#9A690F]/20 selection:text-[#291901] font-sans">
+        <div className="min-h-screen flex flex-col bg-brand-100 selection:bg-brand-500/20 selection:text-brand-950 font-sans">
             {/* Reduced padding container - centered but minimal waste */}
             <main className="flex-grow flex flex-col items-center justify-start py-4 px-2 sm:px-4">
                 <div className="w-full max-w-5xl">
@@ -18,4 +18,3 @@ const CompactLayout: React.FC<LayoutProps> = ({ children }) => {
 };
 
 export default CompactLayout;
-

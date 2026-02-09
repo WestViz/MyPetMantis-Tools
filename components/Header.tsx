@@ -9,18 +9,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full glass-panel border-b border-[#9A690F]/30 backdrop-blur-md bg-gradient-to-r from-[#291901] to-[#885C09]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-center sm:justify-between">
-        <a href="/" onClick={(e) => handleNav(e, '/')} className="flex items-center gap-3 group cursor-pointer select-none">
-          <div className="bg-gradient-to-br from-[#9A690F] to-[#885C09] p-2.5 rounded-xl shadow-lg shadow-[#9A690F]/30 transition-all duration-300 transform group-hover:scale-105">
-            <Layers className="w-6 h-6 text-[#ffe0c1]" />
-          </div>
-          <div className="flex flex-col">
-            <h1 className="text-2xl font-bold text-[#ffe0c1] leading-none tracking-tight">Asphalt Calculator USA</h1>
-            <span className="text-xs text-[#ffe0c1]/80 font-medium tracking-wide">Professional Asphalt Calculators and Estimators</span>
-          </div>
-        </a>
-      </div>
+    <header className="sticky top-0 z-50 w-full glass-panel border-b border-brand-600/30 backdrop-blur-md bg-gradient-to-r from-brand-950 to-brand-800">
+
     </header>
   );
 };

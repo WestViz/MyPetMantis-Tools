@@ -56,22 +56,22 @@ const SelectionButton = ({ selected, onClick, label, subLabel, icon: Icon }: any
         onClick={onClick} 
         className={`relative p-2 md:p-3 rounded-xl border transition-all duration-200 w-full touch-manipulation flex flex-col justify-center items-center text-center h-full
         ${selected 
-            ? 'border-[#9A690F] bg-[#9A690F]/10 ring-1 ring-[#9A690F]' 
-            : 'border-[#ffe0c1] bg-white hover:bg-[#ffe0c1]/50 text-slate-500'}`}
+            ? 'border-brand-600 bg-brand-50 ring-1 ring-brand-500' 
+            : 'border-brand-200 bg-white hover:bg-brand-50/50 text-slate-500'}`}
     >
-        {Icon && <Icon className={`w-5 h-5 mb-1 ${selected ? 'text-[#9A690F]' : 'text-slate-400'}`} />}
-        <div className={`font-bold text-xs md:text-sm ${selected ? 'text-[#291901]' : 'text-slate-700'}`}>{label}</div>
-        {subLabel && <div className={`text-[10px] mt-0.5 leading-tight ${selected ? 'text-[#885C09]' : 'text-slate-400'}`}>{subLabel}</div>}
-        {selected && <div className="absolute top-1 right-1 text-[#9A690F]"><CheckCircle2 className="w-3 h-3" /></div>}
+        {Icon && <Icon className={`w-5 h-5 mb-1 ${selected ? 'text-brand-600' : 'text-slate-400'}`} />}
+        <div className={`font-bold text-xs md:text-sm ${selected ? 'text-brand-900' : 'text-slate-700'}`}>{label}</div>
+        {subLabel && <div className={`text-[10px] mt-0.5 leading-tight ${selected ? 'text-brand-700' : 'text-slate-400'}`}>{subLabel}</div>}
+        {selected && <div className="absolute top-1 right-1 text-brand-600"><CheckCircle2 className="w-3 h-3" /></div>}
     </button>
 );
 
 // Slider Input Component
 const DimensionSlider = ({ label, value, min, max, step, unit, onChange }: any) => (
-    <div className="bg-[#ffe0c1]/20 p-3 rounded-xl border border-[#ffe0c1]/50">
+    <div className="bg-brand-50/50 p-3 rounded-xl border border-brand-200/50">
         <div className="flex justify-between mb-2">
-            <span className="text-xs font-bold text-[#885C09] uppercase">{label}</span>
-            <span className="text-xs font-bold text-[#291901] bg-white px-2 py-0.5 rounded-md shadow-sm border border-[#ffe0c1]">
+            <span className="text-xs font-bold text-brand-700 uppercase">{label}</span>
+            <span className="text-xs font-bold text-brand-900 bg-white px-2 py-0.5 rounded-md shadow-sm border border-brand-200">
                 {value} {unit}
             </span>
         </div>
@@ -82,7 +82,7 @@ const DimensionSlider = ({ label, value, min, max, step, unit, onChange }: any) 
             step={step} 
             value={value} 
             onChange={(e) => onChange(parseFloat(e.target.value))}
-            className="w-full h-2 bg-[#ffe0c1] rounded-lg appearance-none cursor-pointer accent-[#9A690F]"
+            className="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-brand-600"
         />
     </div>
 );
@@ -203,10 +203,10 @@ const AsphaltDrivewayCalculator: React.FC = () => {
     };
 
     return (
-        <div className="glass-panel text-slate-900 rounded-[2rem] shadow-xl bg-white/95 backdrop-blur-md border border-[#885C09]/20 p-0 md:p-8 relative overflow-hidden max-w-6xl mx-auto font-sans">
+        <div className="glass-panel text-slate-900 rounded-[2rem] shadow-xl bg-white/95 backdrop-blur-md border border-brand-700/20 p-0 md:p-8 relative overflow-hidden max-w-6xl mx-auto font-sans">
             
             {/* Sticky Mobile Header Result */}
-            <div className="lg:hidden sticky top-0 z-40 bg-[#291901] text-[#ffe0c1] p-4 shadow-lg flex justify-between items-center border-b border-[#885C09]/30">
+            <div className="lg:hidden sticky top-0 z-40 bg-brand-950 text-brand-100 p-4 shadow-lg flex justify-between items-center border-b border-brand-800/30">
                 <div>
                     <div className="text-[10px] uppercase tracking-wider opacity-70">Estimated Cost</div>
                     <div className="text-2xl font-black text-white leading-none">
@@ -222,11 +222,11 @@ const AsphaltDrivewayCalculator: React.FC = () => {
             <div className="p-4 md:p-0 relative z-10 w-full">
                 <div className="text-center mb-6 md:mb-8 pt-4 md:pt-0">
                     <div className="inline-flex items-center gap-2 mb-2">
-                        <span className="p-1.5 bg-[#9A690F]/10 text-[#885C09] rounded-lg"><Home className="w-5 h-5" /></span>
-                        <span className="text-[10px] font-bold tracking-widest text-[#885C09] uppercase">2025 Calculator</span>
+                        <span className="p-1.5 bg-brand-100 text-brand-700 rounded-lg"><Home className="w-5 h-5" /></span>
+                        <span className="text-[10px] font-bold tracking-widest text-brand-700 uppercase">2025 Calculator</span>
                     </div>
-                    <h1 className="text-2xl md:text-4xl font-black text-[#291901] tracking-tight">Asphalt Paving Estimator</h1>
-                    <p className="text-xs text-[#885C09] mt-1">Instant Quote for Materials & Installation</p>
+                    <h1 className="text-2xl md:text-4xl font-black text-brand-900 tracking-tight">Asphalt Paving Estimator</h1>
+                    <p className="text-xs text-brand-700 mt-1">Instant Quote for Materials & Installation</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -234,12 +234,12 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                     <div className="lg:col-span-7 space-y-5">
 
                         {/* Presets & Dimensions */}
-                        <div className="bg-white p-5 rounded-3xl shadow-sm border border-[#885C09]/10">
+                        <div className="bg-white p-5 rounded-3xl shadow-sm border border-brand-700/10">
                             <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-bold text-[#291901] text-sm uppercase tracking-wide flex items-center gap-2">
-                                    <Ruler className="w-4 h-4 text-[#9A690F]" /> Dimensions
+                                <h3 className="font-bold text-brand-900 text-sm uppercase tracking-wide flex items-center gap-2">
+                                    <Ruler className="w-4 h-4 text-brand-600" /> Dimensions
                                 </h3>
-                                <button onClick={toggleUnit} className="text-[10px] font-bold bg-[#ffe0c1] hover:bg-[#9A690F]/20 text-[#885C09] px-3 py-1.5 rounded-full transition-colors uppercase">
+                                <button onClick={toggleUnit} className="text-[10px] font-bold bg-brand-100 hover:bg-brand-200 text-brand-700 px-3 py-1.5 rounded-full transition-colors uppercase">
                                     {inputs.unitSystem === 'imperial' ? 'To Metric' : 'To Imperial'}
                                 </button>
                             </div>
@@ -250,9 +250,9 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                                     <button 
                                         key={key}
                                         onClick={() => applyPreset(key as keyof typeof PRESETS)}
-                                        className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#9A690F] hover:bg-[#9A690F]/5 active:scale-95 transition-all text-center h-full group"
+                                        className="flex flex-col items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-200 hover:border-brand-600 hover:bg-brand-50/50 active:scale-95 transition-all text-center h-full group"
                                     >
-                                        <CarFront className="w-5 h-5 text-slate-400 group-hover:text-[#9A690F] mb-1.5" />
+                                        <CarFront className="w-5 h-5 text-slate-400 group-hover:text-brand-600 mb-1.5" />
                                         <div className="text-xs font-bold text-slate-700 leading-tight">{data.label}</div>
                                         <div className="text-[10px] text-slate-400 mt-1">{data.w}x{data.l} {u.l}</div>
                                     </button>
@@ -268,9 +268,9 @@ const AsphaltDrivewayCalculator: React.FC = () => {
 
                         {/* Project Details */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="bg-white p-5 rounded-3xl shadow-sm border border-[#885C09]/10">
-                                <h3 className="font-bold text-[#291901] text-sm uppercase tracking-wide mb-3 flex items-center gap-2">
-                                    <TrendingUp className="w-4 h-4 text-[#9A690F]" /> Type
+                            <div className="bg-white p-5 rounded-3xl shadow-sm border border-brand-700/10">
+                                <h3 className="font-bold text-brand-900 text-sm uppercase tracking-wide mb-3 flex items-center gap-2">
+                                    <TrendingUp className="w-4 h-4 text-brand-600" /> Type
                                 </h3>
                                 <div className="grid grid-cols-2 gap-2 h-24">
                                     <SelectionButton selected={inputs.surfaceType === 'new'} onClick={() => setInputs(p => ({ ...p, surfaceType: 'new' }))} label="New Install" subLabel="Inc. Base" />
@@ -278,9 +278,9 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-white p-5 rounded-3xl shadow-sm border border-[#885C09]/10">
-                                <h3 className="font-bold text-[#291901] text-sm uppercase tracking-wide mb-3 flex items-center gap-2">
-                                    <Settings className="w-4 h-4 text-[#9A690F]" /> Shape
+                            <div className="bg-white p-5 rounded-3xl shadow-sm border border-brand-700/10">
+                                <h3 className="font-bold text-brand-900 text-sm uppercase tracking-wide mb-3 flex items-center gap-2">
+                                    <Settings className="w-4 h-4 text-brand-600" /> Shape
                                 </h3>
                                 <div className="grid grid-cols-3 gap-2 h-24">
                                     <SelectionButton selected={inputs.curveComplexity === 'straight'} onClick={() => setInputs(p => ({ ...p, curveComplexity: 'straight' }))} label="Straight" subLabel="Std" />
@@ -291,14 +291,14 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                         </div>
 
                         {/* Location / Cost Tiers */}
-                        <div className="bg-white p-5 rounded-3xl shadow-sm border border-[#885C09]/10">
+                        <div className="bg-white p-5 rounded-3xl shadow-sm border border-brand-700/10">
                             <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-bold text-[#291901] text-sm uppercase tracking-wide flex items-center gap-2">
-                                    <MapPin className="w-4 h-4 text-[#9A690F]" /> Regional Prices
+                                <h3 className="font-bold text-brand-900 text-sm uppercase tracking-wide flex items-center gap-2">
+                                    <MapPin className="w-4 h-4 text-brand-600" /> Regional Prices
                                 </h3>
                                 <button 
                                     onClick={() => setShowAdvanced(!showAdvanced)}
-                                    className="text-[10px] flex items-center gap-1 font-bold text-slate-400 hover:text-[#9A690F] uppercase transition-colors"
+                                    className="text-[10px] flex items-center gap-1 font-bold text-slate-400 hover:text-brand-600 uppercase transition-colors"
                                 >
                                     <Settings className="w-3 h-3" /> {showAdvanced ? 'Hide' : 'Edit'}
                                 </button>
@@ -309,7 +309,7 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                                     <button
                                         key={tier}
                                         onClick={() => setInputs(p => ({ ...p, costTier: tier }))}
-                                        className={`py-3 px-2 rounded-xl text-center transition-all ${inputs.costTier === tier ? 'bg-[#291901] text-[#ffe0c1] shadow-lg scale-105' : 'bg-slate-50 text-slate-500 hover:bg-slate-100'}`}
+                                        className={`py-3 px-2 rounded-xl text-center transition-all ${inputs.costTier === tier ? 'bg-brand-900 text-brand-100 shadow-lg scale-105' : 'bg-slate-50 text-slate-500 hover:bg-slate-100'}`}
                                     >
                                         <div className="text-xs font-bold uppercase mb-1">{COST_TIERS[tier].label}</div>
                                         <div className="text-[10px] opacity-70">
@@ -323,12 +323,12 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                             {showAdvanced && (
                                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-100 animate-in fade-in slide-in-from-top-2">
                                     <div>
-                                        <label className="block text-[10px] font-bold text-[#885C09] uppercase mb-1">Material ($/Ton)</label>
-                                        <input type="number" value={inputs.materialCostPerTon} onChange={(e) => setInputs(p => ({ ...p, materialCostPerTon: parseFloat(e.target.value) || 0 }))} className="w-full px-3 py-2 bg-[#ffe0c1]/20 border border-[#ffe0c1] rounded-lg font-bold text-sm text-[#291901]" />
+                                        <label className="block text-[10px] font-bold text-brand-700 uppercase mb-1">Material ($/Ton)</label>
+                                        <input type="number" value={inputs.materialCostPerTon} onChange={(e) => setInputs(p => ({ ...p, materialCostPerTon: parseFloat(e.target.value) || 0 }))} className="w-full px-3 py-2 bg-brand-50 border border-brand-200 rounded-lg font-bold text-sm text-brand-900" />
                                     </div>
                                     <div>
-                                        <label className="block text-[10px] font-bold text-[#885C09] uppercase mb-1">Labor ($/Hr)</label>
-                                        <input type="number" value={inputs.laborRate} onChange={(e) => setInputs(p => ({ ...p, laborRate: parseFloat(e.target.value) || 0 }))} className="w-full px-3 py-2 bg-[#ffe0c1]/20 border border-[#ffe0c1] rounded-lg font-bold text-sm text-[#291901]" />
+                                        <label className="block text-[10px] font-bold text-brand-700 uppercase mb-1">Labor ($/Hr)</label>
+                                        <input type="number" value={inputs.laborRate} onChange={(e) => setInputs(p => ({ ...p, laborRate: parseFloat(e.target.value) || 0 }))} className="w-full px-3 py-2 bg-brand-50 border border-brand-200 rounded-lg font-bold text-sm text-brand-900" />
                                     </div>
                                 </div>
                             )}
@@ -337,23 +337,23 @@ const AsphaltDrivewayCalculator: React.FC = () => {
 
                     {/* RESULTS COLUMN */}
                     <div className="lg:col-span-5 space-y-4">
-                        <div className="bg-gradient-to-br from-[#291901] to-[#5c3d05] text-white p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
+                        <div className="bg-gradient-to-br from-brand-950 to-brand-800 text-white p-6 md:p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
                             <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none"><DollarSign className="w-48 h-48" /></div>
                             
                             <div className="relative z-10">
                                 <div className="flex justify-between items-start mb-6">
                                     <div>
-                                        <p className="text-[#ffe0c1]/70 font-bold uppercase tracking-widest text-[10px] mb-2">Total Project Estimate</p>
+                                        <p className="text-brand-100/70 font-bold uppercase tracking-widest text-[10px] mb-2">Total Project Estimate</p>
                                         {result ? (
                                             <div className="text-5xl md:text-6xl font-black tracking-tighter text-white drop-shadow-xl">
                                                 ${(result.totalCost / 1000).toFixed(1)}k
                                             </div>
-                                        ) : <div className="text-4xl font-bold text-[#ffe0c1]/40">--</div>}
+                                        ) : <div className="text-4xl font-bold text-brand-100/40">--</div>}
                                     </div>
                                     <div className="text-right">
                                         <div className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10 inline-block">
                                             <div className="text-2xl font-bold">{result?.squareFeet.toLocaleString()}</div>
-                                            <div className="text-[10px] uppercase text-[#ffe0c1]/80">Sq. Ft.</div>
+                                            <div className="text-[10px] uppercase text-brand-100/80">Sq. Ft.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -363,32 +363,32 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                                         <div className="space-y-3 mb-6">
                                             <div className="bg-black/20 p-3 rounded-xl">
                                                 <div className="flex justify-between text-xs mb-1">
-                                                    <span className="text-[#ffe0c1]">Materials ({result.tonnage} Tons)</span>
+                                                    <span className="text-brand-100">Materials ({result.tonnage} Tons)</span>
                                                     <span className="font-bold">${result.materialCost.toLocaleString()}</span>
                                                 </div>
                                                 <div className="w-full bg-white/10 rounded-full h-1.5">
-                                                    <div className="bg-[#ffe0c1] h-1.5 rounded-full" style={{ width: `${(result.materialCost / result.totalCost) * 100}%` }}></div>
+                                                    <div className="bg-brand-200 h-1.5 rounded-full" style={{ width: `${(result.materialCost / result.totalCost) * 100}%` }}></div>
                                                 </div>
                                             </div>
                                             
                                             <div className="bg-black/20 p-3 rounded-xl">
                                                 <div className="flex justify-between text-xs mb-1">
-                                                    <span className="text-[#ffe0c1]">Labor & Install</span>
+                                                    <span className="text-brand-100">Labor & Install</span>
                                                     <span className="font-bold">${result.laborCost.toLocaleString()}</span>
                                                 </div>
                                                 <div className="w-full bg-white/10 rounded-full h-1.5">
-                                                    <div className="bg-[#fbbf24] h-1.5 rounded-full" style={{ width: `${(result.laborCost / result.totalCost) * 100}%` }}></div>
+                                                    <div className="bg-amber-400 h-1.5 rounded-full" style={{ width: `${(result.laborCost / result.totalCost) * 100}%` }}></div>
                                                 </div>
                                             </div>
 
                                             <div className="flex gap-2">
                                                 <div className="flex-1 bg-black/20 p-2 rounded-xl text-center">
-                                                    <div className="text-[10px] text-[#ffe0c1]/60 uppercase">Equipment</div>
+                                                    <div className="text-[10px] text-brand-100/60 uppercase">Equipment</div>
                                                     <div className="font-bold text-sm">${result.equipmentCost}</div>
                                                 </div>
                                                 {result.baseCost > 0 && (
                                                     <div className="flex-1 bg-black/20 p-2 rounded-xl text-center">
-                                                        <div className="text-[10px] text-[#ffe0c1]/60 uppercase">Gravel Base</div>
+                                                        <div className="text-[10px] text-brand-100/60 uppercase">Gravel Base</div>
                                                         <div className="font-bold text-sm">${result.baseCost}</div>
                                                     </div>
                                                 )}
@@ -410,14 +410,14 @@ const AsphaltDrivewayCalculator: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="bg-[#fff8f0] p-5 rounded-3xl border border-[#ffe0c1]">
-                            <h4 className="font-bold text-[#291901] mb-3 flex items-center gap-2 text-xs uppercase tracking-wide">
+                        <div className="bg-brand-50 p-5 rounded-3xl border border-brand-200">
+                            <h4 className="font-bold text-brand-900 mb-3 flex items-center gap-2 text-xs uppercase tracking-wide">
                                 <CheckCircle2 className="w-4 h-4 text-green-600" /> Money Saving Tips
                             </h4>
                             <ul className="space-y-2">
                                 {["Schedule in late fall for potential discounts.", "Recycled asphalt millings cost 50% less.", "Ensure proper drainage to double lifespan."].map((item, i) => (
                                     <li key={i} className="flex items-start gap-2 text-xs text-slate-600">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-[#9A690F] mt-1 shrink-0"></div>
+                                        <div className="w-1.5 h-1.5 rounded-full bg-brand-600 mt-1 shrink-0"></div>
                                         {item}
                                     </li>
                                 ))}
@@ -428,10 +428,10 @@ const AsphaltDrivewayCalculator: React.FC = () => {
             </div>
 
             <div className="text-center mt-6">
-                <p className="text-[#885C09] text-sm">
+                <p className="text-brand-700 text-sm">
                     Disclaimer: Always consult with a licensed contractor or engineer for precise project planning. Results are for informational purposes only.
                     <br></br>
-                    Powered by <a href="https://asphaltcalculatorusa.com" className="text-[#9A690F] font-bold hover:underline" target="_blank" rel="noopener noreferrer">AsphaltCalculatorUSA.com</a>
+                    Powered by <a href="https://asphaltcalculatorusa.com" className="text-brand-600 font-bold hover:underline" target="_blank" rel="noopener noreferrer">AsphaltCalculatorUSA.com</a>
                 </p>
             </div>
         </div>
