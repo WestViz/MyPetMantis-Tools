@@ -1,4 +1,3 @@
-# CabinetCalq & Estimator Tools
 
 This project is a React-based suite of calculator tools.
 

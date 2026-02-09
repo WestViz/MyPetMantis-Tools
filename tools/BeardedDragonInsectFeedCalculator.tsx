@@ -454,7 +454,7 @@ const BeardedDragonInsectFeedCalculator: React.FC = () => {
                 <div className="text-center mb-6 md:mb-8 pt-4 md:pt-0">
                     <div className="inline-flex items-center gap-2 mb-2">
                         <span className="p-1.5 bg-brand-100 text-brand-700 rounded-lg"><Bug className="w-5 h-5" /></span>
-                        <span className="text-[10px] font-bold tracking-widest text-brand-700 uppercase">2025 Calculator</span>
+                        <span className="text-[10px] font-bold tracking-widest text-brand-700 uppercase">Calculate Your Insect Needs Accurately</span>
                     </div>
                     <h1 className="text-2xl md:text-4xl font-black text-brand-900 tracking-tight">Insect Feed Calculator</h1>
                     <p className="text-xs text-brand-700 mt-1">Choose the best feeders for your dragon</p>
