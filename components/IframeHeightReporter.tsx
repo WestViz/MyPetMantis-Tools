@@ -10,6 +10,8 @@ import { useEffect, useRef } from 'react';
  * - Debouncing to prevent excessive updates
  * - Minimum height change threshold (10px) to avoid noise
  * - Throttled updates (max once per 500ms)
+ * - Debug logging for troubleshooting
+ * - Only sends if actually in iframe (prevents issues when viewing directly)
  *
  * Usage: Add this component to any page/tool that will be embedded in an iframe.
  *
@@ -18,8 +20,17 @@ import { useEffect, useRef } from 'react';
 export function IframeHeightReporter() {
   const lastHeightRef = useRef<number>(0);
   const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isIframe = window.parent !== window;
 
   useEffect(() => {
+    // Only run if we're actually in an iframe
+    if (!isIframe) {
+      console.log('📏 IframeHeightReporter: Not running (not in iframe)');
+      return;
+    }
+
+    console.log('📏 IframeHeightReporter: Starting (in iframe mode)');
+
     // Function to calculate and send height to parent
     function sendHeight() {
       const height = document.documentElement.scrollHeight;
@@ -28,6 +39,7 @@ export function IframeHeightReporter() {
       // Only send if height changed by at least 10px (prevents infinite loops)
       if (heightChange >= 10 || height === 0) {
         lastHeightRef.current = height;
+        console.log(`📏 Sending height: ${height}px (change: ${heightChange}px)`);
         window.parent.postMessage({ height }, '*');
       }
     }
@@ -44,6 +56,7 @@ export function IframeHeightReporter() {
     }
 
     // Send initial height immediately
+    console.log('📏 Sending initial height...');
     sendHeight();
 
     // Set up ResizeObserver to watch for content changes
@@ -54,8 +67,9 @@ export function IframeHeightReporter() {
         debouncedSendHeight();
       });
       observer.observe(document.documentElement);
+      console.log('📏 ResizeObserver attached');
     } catch (error) {
-      console.warn('ResizeObserver not available, falling back to interval:', error);
+      console.warn('📏 ResizeObserver not available, falling back to interval:', error);
       // Fallback: Poll every 2 seconds if ResizeObserver not available
       const interval = setInterval(() => {
         sendHeight();
@@ -68,11 +82,13 @@ export function IframeHeightReporter() {
     // Also send periodically as fallback (catches any missed events)
     // But use longer interval since we have ResizeObserver
     const interval = setInterval(() => {
+      console.log('📏 Periodic height check...');
       sendHeight();
     }, 5000);
 
     // Cleanup on unmount
     return () => {
+      console.log('📏 IframeHeightReporter: Cleaning up');
       if (observer) {
         observer.disconnect();
       }
@@ -81,7 +97,7 @@ export function IframeHeightReporter() {
       }
       clearInterval(interval);
     };
-  }, []);
+  }, [isIframe]);
 
   // This component renders nothing - it's just for side effects
   return null;
