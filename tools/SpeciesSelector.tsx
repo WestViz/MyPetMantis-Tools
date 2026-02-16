@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { 
-    CheckCircle2, XCircle, Star, Award, 
+import {
+    CheckCircle2, XCircle, Star, Award,
     MapPin, ThermometerSun, Droplets, Shield,
     Zap, AlertTriangle, Info, ArrowRight, Filter
 } from 'lucide-react';
+import { IframeHeightReporter } from '../components/IframeHeightReporter';
 
 type CareLevel = 'beginner' | 'intermediate' | 'advanced';
 type Temperament = 'passive' | 'moderate' | 'aggressive';
@@ -331,6 +332,7 @@ const SpeciesSelector: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-50 font-sans">
+            <IframeHeightReporter />
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMCAwaDQwdjQwSDBWMHptMjAgMjBoMjB2MjBIMjBWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { 
-    Home, Thermometer, Droplets, Sun, Moon, 
-    CheckCircle2, AlertTriangle, Layers, 
+import {
+    Home, Thermometer, Droplets, Sun, Moon,
+    CheckCircle2, AlertTriangle, Layers,
     Shield, MapPin, Plus, Minus, Wind,
     Sparkles, Zap, Leaf, TreePine
 } from 'lucide-react';
+import { IframeHeightReporter } from '../components/IframeHeightReporter';
 
 type MantisSpecies = 'chinese' | 'carolina' | 'european' | 'orchid' | 'flower' | 'other';
 type InstarStage = 'L1-L3' | 'L4-L6' | 'L7-L8' | 'adult';
@@ -350,6 +351,7 @@ const MantisHabitatCalculator: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-blue-50 font-sans">
+            <IframeHeightReporter />
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMCAwaDQwdjQwSDBWMHptMjAgMjBoMjB2MjBIMjBWMjB6TTAgMjBoMjB2MjBIMFYyMHoyMCAwaDIwdjIwSDIwVjB6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
